@@ -1,4 +1,4 @@
-const BASE_URL = 'https://localhost:3000';
+const BASE_URL = 'http://plisha-jr.nomoredomains.rocks';
 
 class Auth {
   constructor(baseUrl) {

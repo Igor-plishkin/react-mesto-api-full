@@ -15,6 +15,7 @@ class Auth {
   registration(email, password) {
     return fetch(`${this.baseUrl}/signup`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -28,6 +29,7 @@ class Auth {
   login(email, password) {
     return fetch(`${this.baseUrl}/signin`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -40,6 +42,7 @@ class Auth {
   getToken(jwt) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${jwt}`,

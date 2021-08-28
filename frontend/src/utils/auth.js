@@ -1,3 +1,5 @@
+const BASE_URL = 'https://localhost:3000';
+
 class Auth {
   constructor(baseUrl) {
     this.baseUrl = baseUrl;
@@ -46,6 +48,6 @@ class Auth {
   }
 }
 
-const auth = new Auth("https://auth.nomoreparties.co");
+const auth = new Auth(BASE_URL);
 
 export default auth;

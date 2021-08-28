@@ -1,8 +1,10 @@
+const BASE_URL = 'https://localhost:3000';
+
 class Api {
   constructor(token, groupId) {
     this.token = token;
     this.groupId = groupId;
-    this.url = "https://mesto.nomoreparties.co/v1/";
+    this.url = BASE_URL;
   }
 
   _handleResponse(res) {

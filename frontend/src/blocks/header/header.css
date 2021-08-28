@@ -1,0 +1,25 @@
+.header{
+  padding: 45px 19px 41px;
+  margin: 0 auto;
+  max-width: 918px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+header::after{
+  content: "";
+  height: 1px;
+  background-color: rgba(84, 84, 84, .7);
+  max-width: 880px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
+@media screen and (max-width: 540px){
+  .header{
+    padding: 28px 19px 32px;
+  }
+}

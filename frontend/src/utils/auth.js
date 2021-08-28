@@ -1,4 +1,4 @@
-const BASE_URL = 'http://plisha-jr.nomoredomains.rocks';
+const BASE_URL = 'http://api.plisha-jr.nomoredomains.rocks';
 
 class Auth {
   constructor(baseUrl) {

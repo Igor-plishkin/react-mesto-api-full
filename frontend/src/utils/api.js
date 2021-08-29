@@ -18,6 +18,10 @@ class Api {
     return fetch(`${this.url}/users/me`, {
       method: "GET",
       credentials: "include",
+      headers: {
+        // authorization: this.token,
+        "Content-Type": "application/json",
+      },
       // headers: {
       //   // authorization: this.token,
       // },
@@ -72,6 +76,10 @@ class Api {
     return fetch(`${this.url}/cards/${id}`, {
       method: "DELETE",
       credentials: "include",
+      headers: {
+        // authorization: this.token,
+        "Content-Type": "application/json",
+      },
       // headers: {
       //   // authorization: this.token,
       // },
@@ -82,6 +90,10 @@ class Api {
     return fetch(`${this.url}/cards/likes/${id}`, {
       method: isLiked ? "PUT" : "DELETE",
       credentials: "include",
+      headers: {
+        // authorization: this.token,
+        "Content-Type": "application/json",
+      },
       // headers: {
       //   // authorization: this.token,
       // },
@@ -91,6 +103,10 @@ class Api {
     return fetch(`${this.url}/cards`, {
       method: "GET",
       credentials: "include",
+      headers: {
+        // authorization: this.token,
+        "Content-Type": "application/json",
+      },
       // headers: {
       //   // authorization: this.token,
       // },

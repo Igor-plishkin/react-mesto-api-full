@@ -53,7 +53,8 @@ app.post("/signup", celebrate({
     about: Joi.string().min(2).max(30),
     avatar: Joi.string().custom((value) => {
       if (!isUrl(value)) {
-        throw new CelebrateError("Не корректная ссылка");
+        // throw new CelebrateError("Не корректная ссылка");
+        return value;
       }
       return value;
     }),

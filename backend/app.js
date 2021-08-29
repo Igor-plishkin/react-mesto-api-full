@@ -2,7 +2,13 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const { celebrate, Joi, errors } = require("celebrate");
+const {
+  celebrate,
+  Joi,
+  errors,
+  CelebrateError,
+} = require("celebrate");
+const { isUrl } = require("validator");
 const { login, createUser } = require("./controllers/users");
 const auth = require("./middlewares/auth");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
@@ -43,8 +49,13 @@ app.post("/signup", celebrate({
     password: Joi.string().required().min(8),
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
-    avatar: Joi.string(),
-  }).unknown(true),
+    avatar: Joi.string().custom((value) => {
+      if (!isUrl(value)) {
+        throw new CelebrateError("Не корректная ссылка");
+      }
+      return value;
+    }),
+  }),
 }), createUser);
 app.use(auth);
 app.use("/", require("./routes/users"));

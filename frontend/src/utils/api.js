@@ -103,10 +103,6 @@ class Api {
     return fetch(`${this.url}/cards`, {
       method: "GET",
       credentials: "include",
-      headers: {
-        // authorization: this.token,
-        "Content-Type": "application/json",
-      },
       // headers: {
       //   // authorization: this.token,
       // },

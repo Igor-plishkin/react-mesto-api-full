@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const { celebrate, Joi, errors } = require("celebrate");
@@ -21,6 +22,7 @@ mongoose.connect("mongodb://localhost:27017/mestodb", {
   useUnifiedTopology: true,
 });
 
+app.use(cookieParser());
 app.use(requestLogger);
 
 app.post("/signin", celebrate({

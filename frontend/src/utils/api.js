@@ -1,8 +1,8 @@
 const BASE_URL = 'https://api.plisha-jr.nomoredomains.rocks';
 
 class Api {
-  constructor(token) {
-    this.token = token;
+  constructor() {
+    // this.token = token;
     this.url = BASE_URL;
   }
 
@@ -18,9 +18,9 @@ class Api {
     return fetch(`${this.url}/users/me`, {
       method: "GET",
       credentials: "include",
-      headers: {
-        // authorization: this.token,
-      },
+      // headers: {
+      //   // authorization: this.token,
+      // },
     }).then(this._handleResponse);
   }
 
@@ -72,9 +72,9 @@ class Api {
     return fetch(`${this.url}/cards/${id}`, {
       method: "DELETE",
       credentials: "include",
-      headers: {
-        // authorization: this.token,
-      },
+      // headers: {
+      //   // authorization: this.token,
+      // },
     }).then(this._handleResponse);
   }
 
@@ -82,22 +82,22 @@ class Api {
     return fetch(`${this.url}/cards/likes/${id}`, {
       method: isLiked ? "PUT" : "DELETE",
       credentials: "include",
-      headers: {
-        // authorization: this.token,
-      },
+      // headers: {
+      //   // authorization: this.token,
+      // },
     }).then(this._handleResponse);
   }
   getInitialCards() {
     return fetch(`${this.url}/cards`, {
       method: "GET",
       credentials: "include",
-      headers: {
-        // authorization: this.token,
-      },
+      // headers: {
+      //   // authorization: this.token,
+      // },
     }).then(this._handleResponse);
   }
 }
 
-const api = new Api("4756f29e-7074-4b91-8a7b-c92b73652806");
+const api = new Api();
 
 export default api;

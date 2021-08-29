@@ -28,7 +28,6 @@ class Auth {
   login(email, password) {
     return fetch(`${this.baseUrl}/signin`, {
       method: "POST",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -39,6 +38,7 @@ class Auth {
     })
       .then(this._handleResponse)
       .then((res) => {
+        console.log(res)
         localStorage.setItem("token", res.token);
       });
   }

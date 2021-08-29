@@ -39,6 +39,7 @@ class Auth {
     }).then(this._handleResponse);
   }
   getToken(jwt) {
+    console.log(jwt)
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
       headers: {

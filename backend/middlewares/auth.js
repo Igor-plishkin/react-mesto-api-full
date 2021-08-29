@@ -12,10 +12,10 @@ module.exports = (req, res, next) => {
   const token = req.cookies.jwt;
   let payload;
 
-  const YOUR_JWT = '';
+  const YOUR_JWT = 'secret-key';
 // вставьте сюда JWT, который вернул публичный сервер студента
 
-const SECRET_KEY_DEV = '';
+const SECRET_KEY_DEV = 'some-special';
 // вставьте сюда секретный ключ для разработки из кода студента
 
 

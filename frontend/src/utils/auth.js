@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.plisha-jr.nomoredomains.rocks';
+const BASE_URL = "https://api.plisha-jr.nomoredomains.rocks";
 
 class Auth {
   constructor(baseUrl) {
@@ -36,17 +36,19 @@ class Auth {
         email,
         password,
       }),
-    }).then(res =>{
-      localStorage.setItem('token', res.token);
-    }).then(this._handleResponse);
+    })
+      .then(this._handleResponse)
+      .then((res) => {
+        localStorage.setItem("token", res.token);
+      });
   }
   getToken(jwt) {
-    console.log(jwt)
+    console.log(jwt);
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "authorization": `Bearer ${jwt}`,
+        authorization: `Bearer ${jwt}`,
       },
       credentials: "include",
     }).then(this._handleResponse);

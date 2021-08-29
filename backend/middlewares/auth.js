@@ -3,6 +3,7 @@ const UnauthorizedError = require("../errors/unauthorized-err");
 // eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
   const { NODE_ENV, JWT_SECRET } = process.env;
+  console.log(JWT_SECRET);
 
   if (!req.cookies.jwt) {
     throw new UnauthorizedError("Необходима авторизация");

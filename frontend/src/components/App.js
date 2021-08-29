@@ -63,8 +63,8 @@ function App() {
     if (loggedIn) {
       Promise.all([api.getUser(), api.getInitialCards()])
         .then(([userData, initialCards]) => {
-          setCurrentUser(userData);
-          setCards(initialCards);
+          setCurrentUser(userData.data);
+          setCards(initialCards.data);
         })
         .catch((err) => {
           console.log(err);
@@ -100,7 +100,7 @@ function App() {
     api
       .setUser(data)
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser(res.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -112,7 +112,7 @@ function App() {
     api
       .setAvatar(data)
       .then((res) => {
-        setCurrentUser(res);
+        setCurrentUser(res.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -121,13 +121,13 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
 
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
+          state.map((c) => (c._id === card._id ? newCard.data : c))
         );
       })
       .catch((err) => {
@@ -150,7 +150,7 @@ function App() {
     api
       .setCard(card)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([newCard.data, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {

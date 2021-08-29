@@ -34,8 +34,8 @@ function Main(props) {
           onClick={props.onAddPlace}
         ></button>
       </section>
-      <section className="places">
-        {props.cards && props.cards.map((card) => {
+      <section className="places">        
+        {!props.cards ? <div>No cards</div> : props.cards.map((card) => {
           return (
             <Card
               key={card._id}

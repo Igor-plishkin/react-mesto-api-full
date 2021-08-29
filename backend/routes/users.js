@@ -1,4 +1,5 @@
-const { celebrate, Joi } = require("celebrate");
+const { celebrate, Joi, CelebrateError } = require("celebrate");
+const { isUrl } = require("validator");
 const router = require("express").Router();
 const {
   getAllUsers,
@@ -12,7 +13,7 @@ router.get("/users", getAllUsers);
 router.get("/users/me", getUserInfo);
 router.get("/users/:userId", celebrate({
   params: Joi.object().keys({
-    userId: Joi.string().length(24).alphanum(),
+    userId: Joi.string().length(24).hex(),
   }),
 }), getUserById);
 router.patch("/users/me", celebrate({
@@ -23,7 +24,12 @@ router.patch("/users/me", celebrate({
 }), patchUser);
 router.patch("/users/me/avatar", celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().required(),
+    avatar: Joi.string().required().custom((value) => {
+      if (!isUrl(value)) {
+        throw new CelebrateError("Не корректная ссылка");
+      }
+      return value;
+    }),
   }),
 }), patchAvatar);
 

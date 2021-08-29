@@ -1,5 +1,4 @@
 const { celebrate, Joi } = require("celebrate");
-// const { isUrl } = require("validator");
 const router = require("express").Router();
 const {
   getAllCards,
@@ -18,7 +17,13 @@ router.delete("/cards/:cardId", celebrate({
 router.post("/cards", celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
-    link: Joi.string().required(),
+    link: Joi.string().required().validate({
+      validator(link) {
+        // eslint-disable-next-line no-useless-escape
+        return /^(https?):\/\/[w]*\.?[\w-]*\.[a-z]+[\/\w^\w#-]*/.test(link);
+      },
+      message: "Некорректная ссылка на картинку",
+    }),
   }),
 }), createCard);
 router.put("/cards/:cardId/likes", celebrate({

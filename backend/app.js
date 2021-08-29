@@ -1,4 +1,5 @@
 const express = require("express");
+const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -32,6 +33,7 @@ require("dotenv").config();
 
 app.use(cookieParser());
 app.use(requestLogger);
+app.use(helmet());
 app.get("/crash-test", () => {
   setTimeout(() => {
     throw new Error("Сервер сейчас упадёт");

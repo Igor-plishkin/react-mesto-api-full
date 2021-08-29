@@ -35,7 +35,7 @@ function Main(props) {
         ></button>
       </section>
       <section className="places">
-        {props.cards.map((card) => {
+        {props.cards && props.cards.map((card) => {
           return (
             <Card
               key={card._id}

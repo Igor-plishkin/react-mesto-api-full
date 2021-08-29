@@ -2,7 +2,6 @@ const BASE_URL = 'https://api.plisha-jr.nomoredomains.rocks';
 
 class Api {
   constructor() {
-    // this.token = token;
     this.url = BASE_URL;
   }
 
@@ -19,12 +18,8 @@ class Api {
       method: "GET",
       credentials: "include",
       headers: {
-        // authorization: this.token,
         "Content-Type": "application/json",
       },
-      // headers: {
-      //   // authorization: this.token,
-      // },
     }).then(this._handleResponse);
   }
 
@@ -33,7 +28,6 @@ class Api {
       method: "PATCH",
       credentials: "include",
       headers: {
-        // authorization: this.token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -48,7 +42,6 @@ class Api {
       method: "PATCH",
       credentials: "include",
       headers: {
-        // authorization: this.token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -62,7 +55,6 @@ class Api {
       method: "POST",
       credentials: "include",
       headers: {
-        // authorization: this.token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -77,12 +69,8 @@ class Api {
       method: "DELETE",
       credentials: "include",
       headers: {
-        // authorization: this.token,
         "Content-Type": "application/json",
       },
-      // headers: {
-      //   // authorization: this.token,
-      // },
     }).then(this._handleResponse);
   }
 
@@ -91,21 +79,14 @@ class Api {
       method: isLiked ? "PUT" : "DELETE",
       credentials: "include",
       headers: {
-        // authorization: this.token,
         "Content-Type": "application/json",
       },
-      // headers: {
-      //   // authorization: this.token,
-      // },
     }).then(this._handleResponse);
   }
   getInitialCards() {
     return fetch(`${this.url}/cards`, {
       method: "GET",
       credentials: "include",
-      // headers: {
-      //   // authorization: this.token,
-      // },
     }).then(this._handleResponse);
   }
 }

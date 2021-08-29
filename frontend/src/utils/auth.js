@@ -18,7 +18,7 @@ class Auth {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Origin: this.baseUrl,
+        "Accept": "application/json",
       },
       body: JSON.stringify({
         email,
@@ -33,7 +33,7 @@ class Auth {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        Origin: this.baseUrl,
+        "Accept": "application/json",
       },
       body: JSON.stringify({
         email,
@@ -48,7 +48,7 @@ class Auth {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${jwt}`,
-        Origin: this.baseUrl,
+        "Accept": "application/json",
       },
     }).then(this._handleResponse);
   }

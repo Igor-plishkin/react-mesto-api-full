@@ -18,8 +18,6 @@ module.exports = (req, res, next) => {
   }
 
   req.user = payload;
-  if (payload){
-    res.send({message: "good"});
-  }
+
   next();
 };

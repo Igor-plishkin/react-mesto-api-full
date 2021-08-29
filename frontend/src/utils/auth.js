@@ -36,7 +36,9 @@ class Auth {
         email,
         password,
       }),
-    }).then(this._handleResponse);
+    }).then(res =>{
+      localStorage.setItem('token', res.token);
+    });
   }
   getToken(jwt) {
     console.log(jwt)
@@ -44,7 +46,7 @@ class Auth {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        authorization: `Bearer ${jwt}`,
+        "authorization": `Bearer ${jwt}`,
       },
       credentials: "include",
     }).then(this._handleResponse);

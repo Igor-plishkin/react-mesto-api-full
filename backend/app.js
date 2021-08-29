@@ -22,6 +22,10 @@ mongoose.connect("mongodb://localhost:27017/mestodb", {
   useUnifiedTopology: true,
 });
 
+require("dotenv").config();
+
+console.log(process.env.NODE_ENV);
+
 app.use(cookieParser());
 app.use(requestLogger);
 

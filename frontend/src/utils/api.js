@@ -17,6 +17,7 @@ class Api {
   getUser() {
     return fetch(`${this.url}/users/me`, {
       method: "GET",
+      credentials: "include",
       headers: {
         authorization: this.token,
       },
@@ -26,6 +27,7 @@ class Api {
   setUser(data) {
     return fetch(`${this.url}/users/me`, {
       method: "PATCH",
+      credentials: "include",
       headers: {
         authorization: this.token,
         "Content-Type": "application/json",
@@ -40,6 +42,7 @@ class Api {
   setAvatar(data) {
     return fetch(`${this.url}/users/me/avatar`, {
       method: "PATCH",
+      credentials: "include",
       headers: {
         authorization: this.token,
         "Content-Type": "application/json",
@@ -53,6 +56,7 @@ class Api {
   setCard(data) {
     return fetch(`${this.url}/cards`, {
       method: "POST",
+      credentials: "include",
       headers: {
         authorization: this.token,
         "Content-Type": "application/json",
@@ -67,6 +71,7 @@ class Api {
   deleteCard(id) {
     return fetch(`${this.url}/cards/${id}`, {
       method: "DELETE",
+      credentials: "include",
       headers: {
         authorization: this.token,
       },
@@ -76,6 +81,7 @@ class Api {
   changeLikeCardStatus(id, isLiked) {
     return fetch(`${this.url}/cards/likes/${id}`, {
       method: isLiked ? "PUT" : "DELETE",
+      credentials: "include",
       headers: {
         authorization: this.token,
       },
@@ -84,6 +90,7 @@ class Api {
   getInitialCards() {
     return fetch(`${this.url}/cards`, {
       method: "GET",
+      credentials: "include",
       headers: {
         authorization: this.token,
       },

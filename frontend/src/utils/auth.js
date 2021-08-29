@@ -28,6 +28,7 @@ class Auth {
   login(email, password) {
     return fetch(`${this.baseUrl}/signin`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -44,6 +45,7 @@ class Auth {
         "Content-Type": "application/json",
         Authorization: `Bearer ${jwt}`,
       },
+      credentials: "include",
     }).then(this._handleResponse);
   }
 }

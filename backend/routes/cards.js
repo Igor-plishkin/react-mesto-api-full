@@ -17,13 +17,8 @@ router.delete("/cards/:cardId", celebrate({
 router.post("/cards", celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
-    link: Joi.string().required().validate({
-      validator(link) {
-        // eslint-disable-next-line no-useless-escape
-        return /^(https?):\/\/[w]*\.?[\w-]*\.[a-z]+[\/\w^\w#-]*/.test(link);
-      },
-      message: "Некорректная ссылка на картинку",
-    }),
+    // eslint-disable-next-line no-useless-escape
+    link: Joi.string().required().pattern(/^(https?):\/\/[w]*\.?[\w-]*\.[a-z]+[\/\w^\w#-]*/),
   }),
 }), createCard);
 router.put("/cards/:cardId/likes", celebrate({

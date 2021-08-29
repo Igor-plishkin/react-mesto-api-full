@@ -15,10 +15,8 @@ class Auth {
   registration(email, password) {
     return fetch(`${this.baseUrl}/signup`, {
       method: "POST",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
       },
       body: JSON.stringify({
         email,
@@ -30,10 +28,8 @@ class Auth {
   login(email, password) {
     return fetch(`${this.baseUrl}/signin`, {
       method: "POST",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
       },
       body: JSON.stringify({
         email,
@@ -44,11 +40,9 @@ class Auth {
   getToken(jwt) {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${jwt}`,
-        "Accept": "application/json",
       },
     }).then(this._handleResponse);
   }

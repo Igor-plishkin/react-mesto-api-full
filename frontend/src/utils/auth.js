@@ -22,6 +22,7 @@ class Auth {
         email,
         password,
       }),
+      credentials: "include",
     }).then(this._handleResponse);
   }
 
@@ -35,6 +36,7 @@ class Auth {
         email,
         password,
       }),
+      credentials: "include",
     })
       .then(this._handleResponse)
       .then((res) => {
@@ -49,6 +51,7 @@ class Auth {
         "Content-Type": "application/json",
         "authorization": `Bearer ${jwt}`,
       },
+      credentials: "include",
     }).then(this._handleResponse);
   }
 }

@@ -19,7 +19,7 @@ class Api {
       method: "GET",
       credentials: "include",
       headers: {
-        authorization: this.token,
+        // authorization: this.token,
       },
     }).then(this._handleResponse);
   }
@@ -29,7 +29,7 @@ class Api {
       method: "PATCH",
       credentials: "include",
       headers: {
-        authorization: this.token,
+        // authorization: this.token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -44,7 +44,7 @@ class Api {
       method: "PATCH",
       credentials: "include",
       headers: {
-        authorization: this.token,
+        // authorization: this.token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -58,7 +58,7 @@ class Api {
       method: "POST",
       credentials: "include",
       headers: {
-        authorization: this.token,
+        // authorization: this.token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -73,7 +73,7 @@ class Api {
       method: "DELETE",
       credentials: "include",
       headers: {
-        authorization: this.token,
+        // authorization: this.token,
       },
     }).then(this._handleResponse);
   }
@@ -83,7 +83,7 @@ class Api {
       method: isLiked ? "PUT" : "DELETE",
       credentials: "include",
       headers: {
-        authorization: this.token,
+        // authorization: this.token,
       },
     }).then(this._handleResponse);
   }
@@ -92,7 +92,7 @@ class Api {
       method: "GET",
       credentials: "include",
       headers: {
-        authorization: this.token,
+        // authorization: this.token,
       },
     }).then(this._handleResponse);
   }

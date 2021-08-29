@@ -1,9 +1,8 @@
 const BASE_URL = 'https://api.plisha-jr.nomoredomains.rocks';
 
 class Api {
-  constructor(token, groupId) {
+  constructor(token) {
     this.token = token;
-    this.groupId = groupId;
     this.url = BASE_URL;
   }
 
@@ -16,7 +15,7 @@ class Api {
   }
 
   getUser() {
-    return fetch(`${this.url + this.groupId}/users/me`, {
+    return fetch(`${this.url}/users/me`, {
       method: "GET",
       headers: {
         authorization: this.token,
@@ -25,7 +24,7 @@ class Api {
   }
 
   setUser(data) {
-    return fetch(`${this.url + this.groupId}/users/me`, {
+    return fetch(`${this.url}/users/me`, {
       method: "PATCH",
       headers: {
         authorization: this.token,
@@ -39,7 +38,7 @@ class Api {
   }
 
   setAvatar(data) {
-    return fetch(`${this.url + this.groupId}/users/me/avatar`, {
+    return fetch(`${this.url}/users/me/avatar`, {
       method: "PATCH",
       headers: {
         authorization: this.token,
@@ -52,7 +51,7 @@ class Api {
   }
 
   setCard(data) {
-    return fetch(`${this.url + this.groupId}/cards`, {
+    return fetch(`${this.url}/cards`, {
       method: "POST",
       headers: {
         authorization: this.token,
@@ -66,7 +65,7 @@ class Api {
   }
 
   deleteCard(id) {
-    return fetch(`${this.url + this.groupId}/cards/${id}`, {
+    return fetch(`${this.url}/cards/${id}`, {
       method: "DELETE",
       headers: {
         authorization: this.token,
@@ -75,7 +74,7 @@ class Api {
   }
 
   changeLikeCardStatus(id, isLiked) {
-    return fetch(`${this.url + this.groupId}/cards/likes/${id}`, {
+    return fetch(`${this.url}/cards/likes/${id}`, {
       method: isLiked ? "PUT" : "DELETE",
       headers: {
         authorization: this.token,
@@ -83,7 +82,7 @@ class Api {
     }).then(this._handleResponse);
   }
   getInitialCards() {
-    return fetch(`${this.url + this.groupId}/cards`, {
+    return fetch(`${this.url}/cards`, {
       method: "GET",
       headers: {
         authorization: this.token,
@@ -92,6 +91,6 @@ class Api {
   }
 }
 
-const api = new Api("4756f29e-7074-4b91-8a7b-c92b73652806", "cohort-24");
+const api = new Api("4756f29e-7074-4b91-8a7b-c92b73652806");
 
 export default api;

@@ -7,9 +7,8 @@ const {
   celebrate,
   Joi,
   errors,
-  CelebrateError,
 } = require("celebrate");
-const { isUrl } = require("validator");
+// const { isUrl } = require("validator");
 const { login, createUser } = require("./controllers/users");
 const auth = require("./middlewares/auth");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
@@ -51,13 +50,7 @@ app.post("/signup", celebrate({
     password: Joi.string().required().min(8),
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
-    avatar: Joi.string().custom((value) => {
-      if (!isUrl(value)) {
-        // throw new CelebrateError("Не корректная ссылка");
-        return value;
-      }
-      return value;
-    }),
+    avatar: Joi.string(),
   }),
 }), createUser);
 app.use(auth);

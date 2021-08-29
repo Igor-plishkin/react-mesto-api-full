@@ -1,5 +1,5 @@
-const { celebrate, Joi, CelebrateError } = require("celebrate");
-const { isUrl } = require("validator");
+const { celebrate, Joi } = require("celebrate");
+// const { isUrl } = require("validator");
 const router = require("express").Router();
 const {
   getAllCards,
@@ -18,12 +18,7 @@ router.delete("/cards/:cardId", celebrate({
 router.post("/cards", celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
-    link: Joi.string().required().custom((value) => {
-      if (!isUrl(value)) {
-        throw new CelebrateError("Не корректная ссылка");
-      }
-      return value;
-    }),
+    link: Joi.string().required(),
   }),
 }), createCard);
 router.put("/cards/:cardId/likes", celebrate({

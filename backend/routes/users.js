@@ -1,5 +1,5 @@
-const { celebrate, Joi, CelebrateError } = require("celebrate");
-const { isUrl } = require("validator");
+const { celebrate, Joi } = require("celebrate");
+// const { isUrl } = require("validator");
 const router = require("express").Router();
 const {
   getAllUsers,
@@ -24,12 +24,7 @@ router.patch("/users/me", celebrate({
 }), patchUser);
 router.patch("/users/me/avatar", celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().required().custom((value) => {
-      if (!isUrl(value)) {
-        throw new CelebrateError("Не корректная ссылка");
-      }
-      return value;
-    }),
+    avatar: Joi.string().required(),
   }),
 }), patchAvatar);
 

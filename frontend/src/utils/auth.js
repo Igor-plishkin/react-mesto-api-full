@@ -38,10 +38,7 @@ class Auth {
       }),
       credentials: "include",
     })
-      .then(this._handleResponse)
-      .then((res) => {
-        localStorage.setItem("jwt", res.token);
-      });
+      .then(this._handleResponse);
   }
   getToken(jwt) {
     console.log(jwt);
